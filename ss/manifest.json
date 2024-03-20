@@ -1,0 +1,29 @@
+{
+    "manifest_version": 3,
+    "name": "Equation Copier",
+    "description": "Chrome extension for translating images to equations or LaTeX",
+    "version": "1.0",
+    "action": {
+        
+        "default_icon": "images/logo.png",
+        "default_title": "Equation Copier",
+        "default_popup": "popup.html"
+    },
+    "background": {
+        "service_worker": "background.js"
+    },
+    "content_scripts": [
+        {
+            "matches": ["<all_urls>"],
+            "js": ["scripts/jquery.min.js",
+                   "scripts/select.js"],
+            "css": ["select.css"]
+        }
+    ],
+    "permissions": [
+        "activeTab",
+        "tabs",
+        "scripting"
+    ],
+    "host_permissions": ["<all_urls>"]
+  }
